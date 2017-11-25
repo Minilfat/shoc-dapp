@@ -23,7 +23,7 @@ Template.currentLots.events({
         } else {
             smci.MakeBid(k, {
                 gas: 300000,
-                from: coinbase,
+                from: web3.eth.accounts[0],
                 value: web3.toWei(d, 'finney')
             }, (err, result) => {
                 if (!err)

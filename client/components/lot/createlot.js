@@ -15,14 +15,12 @@ Template.createLot.events({
         console.log(d,m,b);
         smci.AddLot(d, m, b, {
             gas: 300000,
-            from: coinbase
+            from: web3.eth.accounts[0]
         }, (err, result) => {
-            if (result) {
+            if (result)
                 console.log("Tx hash: ", result);
-                
-            } else {
+            else
                 console.log("Oopss.. Didn't work :(");
-            }
         });
 
         $('#lotds').val("");
