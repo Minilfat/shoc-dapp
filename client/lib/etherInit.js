@@ -20,5 +20,6 @@ web3.eth.filter('latest').watch(function(e, blockHash) {
         web3.eth.getBlock(blockHash, function(e, block){
             Session.set('latestBlock', block.number);
         });
+        
     }
 });
