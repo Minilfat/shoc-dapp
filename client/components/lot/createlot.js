@@ -13,9 +13,11 @@ Template.createLot.events({
             return;
         }
         console.log(d,m,b);
+       
         smci.AddLot(d, m, b, {
             gas: 300000,
-            from: web3.eth.accounts[0]
+            from: web3.eth.accounts[0],
+            value: web3.toWei(m, 'finney')
         }, (err, result) => {
             if (result)
                 console.log("Tx hash: ", result);

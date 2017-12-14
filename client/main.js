@@ -22,7 +22,7 @@ function fillTable(n) {
                 LotsCollection.insert({
                     id: res[0].c[0],
                     leader: res[2],
-                    description: res[3],
+                    description: web3.toAscii(res[3]),
                     price: res[4].c[0], 
                     buyOutPrice: res[5].c[0], 
                     isOpened: res[6] ? "Yes" : "No"
@@ -43,5 +43,10 @@ if(Meteor.isClient) {
                 getNumberOfLots(fillTable);
         }
     });
+
+    if (typeof web3.eth.accounts[0] == 'undefined') {
+        alert("Unlock MetaMask and refresh the page!");
+    } 
+    
     
 }
